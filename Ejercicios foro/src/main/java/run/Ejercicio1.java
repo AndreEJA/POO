@@ -10,9 +10,11 @@ public class Ejercicio1 {
 
         do {
             System.out.println("=== MENÚ PRINCIPAL ===");
-            System.out.println("1. CuentaBancaria");
-            System.out.println("2. Libro");
-            System.out.println("3. Coche");
+            System.out.println("1. Persona");
+            System.out.println("2. Coche");
+            System.out.println("3. Libro");
+            System.out.println("4. Cuenta Bancaria");
+            System.out.println("5. Estudiante");
             System.out.println("0. Salir");
             System.out.print("Elige una opción: ");
             opcion = sc.nextInt();
@@ -20,14 +22,19 @@ public class Ejercicio1 {
 
             switch (opcion) {
                 case 1:
-                    menuCuentaBancaria(sc);
+                    probarPersona();
                     break;
                 case 2:
-                    probarLibro();
-                    break;
-                case 3:
                     probarCoche();
                     break;
+                case 3:
+                    probarLibro();
+                    break;
+                case 4:
+                    menuCuentaBancaria(sc);
+                    break;
+                case 5:
+                    probarEstudiante();
                 case 0:
                     System.out.println("Saliendo del programa...");
                     break;
@@ -84,6 +91,23 @@ public class Ejercicio1 {
                     System.out.println("Opción inválida.");
             }
         } while (opcion != 0);
+
+    }
+    private static void probarEstudiante() {
+        Estudiante estudiante = new Estudiante("Harry Enrique Bodan Navarro",true,89.50);
+        estudiante.calcularAprobado();
+    }
+    private static void probarPersona() {
+
+        //Crear un objeto de la clase persona
+        Persona persona = new Persona();
+
+        //Asignar valores a los atributos \
+        persona.nombre = "Gabriela Lopez";
+        persona.edad = 18;
+
+        // Mostrar los datos de la persona
+        System.out.println(persona.mostarDatos());
     }
 }
 
